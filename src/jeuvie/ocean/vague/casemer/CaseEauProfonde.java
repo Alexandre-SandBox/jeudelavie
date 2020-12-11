@@ -2,6 +2,7 @@ package jeuvie.ocean.vague.casemer;
 
 import jeuvie.Couleur;
 import jeuvie.bestiole.Dauphin;
+import jeuvie.bestiole.IBestiole;
 import jeuvie.ocean.IOcean;
 
 public class CaseEauProfonde extends Case {
@@ -16,7 +17,7 @@ public class CaseEauProfonde extends Case {
 	/**
 	 * Appelle le construteur parent
 	 */
-	public CaseEauProfonde(Dauphin occupant, boolean vide) {
+	public CaseEauProfonde(IBestiole occupant, boolean vide) {
 		super(occupant,  vide);
 	}
 	
@@ -53,7 +54,7 @@ public class CaseEauProfonde extends Case {
 	 * @return si cette case précise doit survivre ou non.
 	 */
 	public void evoluer(IOcean copie, int col, int lg){
-		
+		//TODO
 	}
 	
 }

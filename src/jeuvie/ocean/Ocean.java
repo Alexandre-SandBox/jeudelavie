@@ -140,18 +140,24 @@ public abstract class Ocean implements IOcean {
 	}
 
 	public int compterVoisinsVivants(int iCol, int jLg) {
+		int nombreBestioles = 0;
 		if (iCol-1 != -1 && iCol+1 >=getNbColonnes() && jLg-1 !=-1 && jLg >=getNbLignes() ) {
 			//Ligne
 			for (int i = jLg-1; i <= jLg+1; i++) {
 				ILigneEau iLigneEau = this.get(i);
 				//Colonne
 				for (int j = iCol-1; j <= iCol+1; j++) {
-					ICase iCase = (ICase) this.get(j);
+					ICase iCase = iLigneEau.get(j);
+					if (iCase.contientBestioleVivante()) {
+						nombreBestioles++;
+					}
 				}
-			}
-			
+			}	
 		}
-		return 0;
+		if (grille.get(jLg).get(iCol).contientBestioleVivante()) {
+			nombreBestioles--;
+		}
+		return nombreBestioles;
 	}
 
 }

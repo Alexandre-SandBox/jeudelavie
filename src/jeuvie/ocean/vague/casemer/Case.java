@@ -1,7 +1,6 @@
 package jeuvie.ocean.vague.casemer;
 
 import jeuvie.Couleur;
-import jeuvie.bestiole.Dauphin;
 import jeuvie.bestiole.IBestiole;
 
 public abstract class Case implements ICase {
@@ -21,7 +20,7 @@ public abstract class Case implements ICase {
 	/**
 	 * Constructeur Case peut générer n'importe quel type de case
 	 */
-	public Case(Dauphin occupant, boolean vide) {
+	public Case(IBestiole occupant, boolean vide) {
 		super();
 		this.occupant = occupant;
 		this.vide = vide;
