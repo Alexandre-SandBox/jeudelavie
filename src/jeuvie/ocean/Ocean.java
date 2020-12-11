@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jeuvie.ocean.vague.ILigneEau;
+import jeuvie.ocean.vague.casemer.ICase;
 
 public abstract class Ocean implements IOcean {
 
@@ -135,11 +136,21 @@ public abstract class Ocean implements IOcean {
 	}
 
 	public void etapeSuivante(){
-		//TODO
+		
 	}
 
 	public int compterVoisinsVivants(int iCol, int jLg) {
-		// TODO
+		if (iCol-1 != -1 && iCol+1 >=getNbColonnes() && jLg-1 !=-1 && jLg >=getNbLignes() ) {
+			//Ligne
+			for (int i = jLg-1; i <= jLg+1; i++) {
+				ILigneEau iLigneEau = this.get(i);
+				//Colonne
+				for (int j = iCol-1; j <= iCol+1; j++) {
+					ICase iCase = (ICase) this.get(j);
+				}
+			}
+			
+		}
 		return 0;
 	}
 

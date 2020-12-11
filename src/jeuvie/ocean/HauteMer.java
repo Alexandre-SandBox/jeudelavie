@@ -15,13 +15,31 @@ public class HauteMer extends Ocean {
 
 	
 	protected void remplirDeLignesEau() {
-		//TODO
+		
 	}
 
 	public int getNbLignes() {		
-		//TODO
+		return NB_LIGNES;
 	}
-
-
-
+	
+	public int getNbColonnes() {
+		return NB_COLONNES;
+	}
+	
+	@Override
+    public HauteMer clone(){
+       
+        HauteMer hauteMer = null;
+        try {
+            hauteMer = (HauteMer) super.clone();
+        } catch(CloneNotSupportedException e) {
+            e.printStackTrace(System.err); // non prévu.
+        }       
+        List<ILigneEau> grilleDupliquee = new ArrayList<ILigneEau> (NB_LIGNES);
+        for (ILigneEau uneLigneEau : super.grille) {
+            grilleDupliquee.add(((LigneEauProfonde)uneLigneEau).clone());
+        }
+        hauteMer.grille=grilleDupliquee;
+        return hauteMer;
+    }
 }

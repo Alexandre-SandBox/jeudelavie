@@ -4,6 +4,8 @@ import controleur.Controleur;
 import jeuvie.bestiole.Dauphin;
 import jeuvie.ocean.HauteMer;
 import jeuvie.ocean.Ocean;
+import jeuvie.ocean.vague.LigneEauProfonde;
+import jeuvie.ocean.vague.casemer.CaseEauProfonde;
 
 
 public class JeuVie {
@@ -20,17 +22,19 @@ public class JeuVie {
 		//new Controleur(new HauteMer(Ocean.PI), Controleur.ITER_PI);
 		//new Controleur(new HauteMer(Ocean.GRAND_VAISSEAU));
 		//new Controleur(new HauteMer(Ocean.PETIT_VAISSEAU));
-		for (int i = 0; i < 10; i++) {
-			Dauphin dauphin = new Dauphin(i);
+		for (int i = 0; i < 20; i++) {
+			CaseEauProfonde caseEauProfonde;
+			Dauphin dauphin = new Dauphin();
 			if (i % 2 == 0) {
 				dauphin.tuer();
+				caseEauProfonde = new CaseEauProfonde();
 			}
-			if (dauphin.isVivante()) {
-				System.out.println(dauphin.toString());
+			else {				
+				caseEauProfonde = new CaseEauProfonde(dauphin, false);
 			}
-			
-		}
+		System.out.println(caseEauProfonde);
 
+		}
 	}
 
 }

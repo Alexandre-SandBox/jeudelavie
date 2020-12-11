@@ -11,44 +11,40 @@ public class Dauphin extends Bestiole{
 	 */
 	private static final Couleur MORT = Couleur.BLEU_MARINE;
 	private static final Couleur VIVANT = Couleur.BLEU_GRIS;
+	
 	/*
 	 * Construteur Dauphin appelant le construteur Bestiole
 	 */
-
-	public Dauphin(int numero) {
-		super(numero);
+	public Dauphin() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return "Le dauphin numéro "+numero+" est vivant";
-	}
-	
-	@Override
-	public int getNumero() {
-		// TODO Auto-generated method stub
-		return numero;
-	}
-	@Override
-	public boolean isVivante() {
-		// TODO Auto-generated method stub
-		return vivante;
-	}
-	@Override
-	public Couleur getCouleur() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
 	protected Couleur getCouleurVivant() {
 		// TODO Auto-generated method stub
-		return null;
+		return VIVANT;
 	}
+
 	@Override
 	protected Couleur getCouleurMort() {
 		// TODO Auto-generated method stub
-		return null;
+		return MORT;
 	}
+	@Override
+    /**
+     * Retourne une copie de la bestiole courante, pour ne pas augmenter le compteur.
+     * Méthode utilisée lors du calcul de l'océan au temps t+1
+     * @return une copie de la bestiole
+     */
+    public Dauphin clone(){
+        //return new Dauphin(this.couleur, this.numero, this.vivante);
+        Dauphin dauphin = null;
+        try {
+            dauphin = (Dauphin) super.clone();
+        } catch(CloneNotSupportedException e) {
+            e.printStackTrace(System.err); // non prévu.
+        }
+        return dauphin;
+    }	
 }
